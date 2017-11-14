@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tarena.dao.CommentMapper">
+	<resultMap type="User" id="userMapper">
+		<id property="id" column="user_id"/>
+		<result property="loginName" column="user_loginname"/>
+	</resultMap>
+	<resultMap type="Video" id="videoMapper">
+		<id property="id" column="video_id"/>
+		<result property="title" column="video_title"/>
+	</resultMap>
+	<resultMap type="Course" id="courseMapper">
+		<id property="id" column="course_id"/>
+		<result property="name" column="course_name"/>
+	</resultMap>
+	<!-- 评论的映射表 -->
+	<resultMap type="Comment" id="commentMapper">
+		<id property="id" column="comment_id" /> 
+		<result property="content" column="comment_content"/>
+		<result property="timestamp" column="comment_timestamp"/>
+		<association property="user" column="user_id" javaType="User" resultMap="userMapper"/>
+		<association property="video" column="video_id" javaType="Video" resultMap="videoMapper"/>
+		<association property="course" column="course_id" javaType="Course" resultMap="courseMapper"/>
+	</resultMap>
+	<!-- 查询所有评论 -->
+	<select id="findAllComment" resultMap="commentMapper">
+		SELECT 
+			com.comment_id,
+			com.comment_content,
+			com.comment_timestamp,
+			u.user_id,
+			u.user_loginname,
+			v.video_id,
+			v.video_title,
+			c.course_id,
+			c.course_name,
+			com.comment_ispass
+		FROM 
+			t_comment com 
+		LEFT OUTER JOIN t_user u ON com.user_id=u.user_id
+		LEFT OUTER JOIN t_video v ON com.video_id=v.video_id
+		LEFT OUTER JOIN t_course c ON com.course_id=c.course_id
+	</select>
+	
+	
+</mapper>
