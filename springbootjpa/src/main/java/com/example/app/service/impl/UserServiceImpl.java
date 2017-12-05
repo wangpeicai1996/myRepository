@@ -2,11 +2,12 @@ package com.example.app.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.app.dao.IUserDao;
 import com.example.app.entity.User;
+import com.example.app.repsitory.IUserRepsitory;
 import com.example.app.service.IUserService;
 
 
@@ -14,32 +15,49 @@ import com.example.app.service.IUserService;
 @Transactional
 public class UserServiceImpl implements IUserService{
 	
-	
-	private IUserDao userDao;
+	@Autowired
+	private IUserRepsitory userRepsitory;
 
-	
 	@Override
 	public List<User> findAllUser() {
-		
-		return null;
+		List<User> users=this.userRepsitory.findAll();
+		if(users!=null&&users.size()>0) {
+			return users;
+		}else {
+			return null;
+		}
 	}
 
 	@Override
 	public int addUser(User user) {
-		// TODO Auto-generated method stub
-		return 0;
+		User user1=this.userRepsitory.save(user);
+		if(user1!=null) {
+			return 1;
+		}else {
+			return 0;
+		}
 	}
 
 	@Override
 	public int updateUserById(User user) {
-		// TODO Auto-generated method stub
-		return 0;
+		User user1=this.userRepsitory.save(user);
+		if(user1!=null) {
+			return 1;
+		}else {
+			return 0;
+		}
+		
 	}
 
 	@Override
 	public int deleteUserById(int id) {
-		// TODO Auto-generated method stub
-		return 0;
+		this.userRepsitory.delete(id);
+		User user=this.userRepsitory.findOne(id);
+		if(user==null) {
+			return 1;
+		}else {
+			return 0;
+		}
 	}
 
 }
