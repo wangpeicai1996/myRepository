@@ -6,7 +6,7 @@ import org.springframework.data.repository.Repository;
 
 import com.example.app.entity.User;
 
-public interface IUserService extends Repository<User,Integer>{
+public interface IUserService{
 
 	public List<User> findAllUser();
 	public int addUser(User user);

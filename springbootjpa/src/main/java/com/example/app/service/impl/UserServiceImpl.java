@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.app.dao.IUserDao;
 import com.example.app.entity.User;
 import com.example.app.service.IUserService;
 
@@ -12,7 +13,9 @@ import com.example.app.service.IUserService;
 @Service("userService")
 @Transactional
 public class UserServiceImpl implements IUserService{
-		
+	
+	
+	private IUserDao userDao;
 
 	
 	@Override
