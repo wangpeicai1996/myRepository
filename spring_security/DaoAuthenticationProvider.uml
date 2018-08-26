@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.security.authentication.dao.DaoAuthenticationProvider</OriginalElement>
+  <nodes>
+    <node x="74.5" y="127.0">org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider</node>
+    <node x="508.0" y="645.0">org.springframework.security.authentication.dao.DaoAuthenticationProvider</node>
+    <node x="251.0" y="737.0">org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.DefaultPostAuthenticationChecks</node>
+    <node x="0.0" y="737.0">org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.DefaultPreAuthenticationChecks</node>
+    <node x="213.5" y="0.0">org.springframework.security.authentication.AuthenticationProvider</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.security.authentication.dao.DaoAuthenticationProvider" target="org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider">
+      <point x="0.0" y="-119.0" />
+      <point x="803.0" y="620.0" />
+      <point x="566.1666666666666" y="620.0" />
+      <point x="196.66666666666663" y="234.0" />
+    </edge>
+    <edge source="org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.DefaultPostAuthenticationChecks" target="org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider">
+      <point x="0.0" y="-27.0" />
+      <point x="0.0" y="234.0" />
+    </edge>
+    <edge source="org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider" target="org.springframework.security.authentication.AuthenticationProvider">
+      <point x="0.0" y="-234.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.DefaultPreAuthenticationChecks" target="org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider">
+      <point x="0.0" y="-27.0" />
+      <point x="115.5" y="620.0" />
+      <point x="172.83333333333337" y="620.0" />
+      <point x="-196.66666666666663" y="234.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.063233665559247" x="420.64670346838875" y="600.2464326632643" />
+  <SelectedNodes>
+    <node>org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.DefaultPreAuthenticationChecks</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
