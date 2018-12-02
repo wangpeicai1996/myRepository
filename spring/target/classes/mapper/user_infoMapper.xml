@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 指定dao层的接口类 -->
+<mapper namespace="com.pcwang.dao.User_Info_Mapper"> 
+
+<!-- 配置orm的映射关系，property是java类中的属性名，column是数据库表中的列名 -->
+<resultMap type="User_Info" id="userResultMap">
+	<!-- id设置表的主见字段 -->
+	<id property="userID" column="userid" jdbcType="VARCHAR"/>
+	<result property="userName" column="username" jdbcType="VARCHAR"/>
+	<result property="password" column="password" jdbcType="VARCHAR"/>
+</resultMap>
+
+<!-- 写sql语句，id属性与dao层接口中的方法名相同,parameterType传入参数的类型，resultType返回值得类型，通过resultMap映射转换 -->
+<select id="getUser" parameterType="java.lang.String" resultMap="userResultMap">
+<!-- sql语句中的参数通过#{}形式传递，与方法中的参数名字相同 -->
+select * from User_Info where username=#{username} and password=#{password}
+</select>
+
+</mapper>
